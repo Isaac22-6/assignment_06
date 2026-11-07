@@ -181,8 +181,6 @@ def analyze_reviews(reviews_file: str) -> pd.DataFrame:
 
     return mentions
 
-    pass
-
 
 def summarize_items(mentions: pd.DataFrame) -> pd.DataFrame:
     """Most-discussed items: one row per (subject, item).

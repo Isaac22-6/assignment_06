@@ -49,7 +49,7 @@ def sentiment_step(reviews: pd.DataFrame, cache_file: str) -> list:
     re-run on the same reviews is free either way — but your cache also works
     offline, and it is what makes the transform steps below fast to debug.
     """
-    # TODO: your code here
+    
     if os.path.exists(cache_file):
         with open(cache_file, "r") as f:
             return json.load(f)
@@ -118,7 +118,6 @@ def sentences_table(documents: list) -> pd.DataFrame:
     ]
     df['sentence_text'] = df['sentence_text'].str.strip()
     return df
-    pass
 
 
 def opinions_table(documents: list) -> pd.DataFrame:
@@ -179,7 +178,6 @@ def opinions_table(documents: list) -> pd.DataFrame:
         ],
     )
 
-    pass
 
 
 def entities_table(documents: list) -> pd.DataFrame:
