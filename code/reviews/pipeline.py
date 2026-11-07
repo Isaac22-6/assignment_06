@@ -49,9 +49,8 @@ def sentiment_step(reviews: pd.DataFrame, cache_file: str) -> list:
     re-run on the same reviews is free either way — but your cache also works
     offline, and it is what makes the transform steps below fast to debug.
     """
-    
     if os.path.exists(cache_file):
-        with open(cache_file, "r") as f:
+        with open(cache_file, "r", encoding="utf-8") as f:
             return json.load(f)
     results = []
     for review in reviews.to_dict("records"):
@@ -59,7 +58,7 @@ def sentiment_step(reviews: pd.DataFrame, cache_file: str) -> list:
         document = response["results"]["documents"][0]
         document["review_id"] = review["review_id"]
         results.append(document)
-    with open(cache_file, "w") as f:
+    with open(cache_file, "w", encoding="utf-8") as f:
         json.dump(results, f)
     return results
 
@@ -71,7 +70,7 @@ def entities_step(reviews: pd.DataFrame, cache_file: str) -> list:
     added. Same cache rule, same loop, `get_entities` instead of `get_sentiment`.
     """
     if os.path.exists(cache_file):
-        with open(cache_file, "r") as f:
+        with open(cache_file, "r", encoding="utf-8") as f:
             return json.load(f)
     results = []
     for review in reviews.to_dict("records"):
@@ -79,7 +78,7 @@ def entities_step(reviews: pd.DataFrame, cache_file: str) -> list:
         document = response["results"]["documents"][0]
         document["review_id"] = review["review_id"]
         results.append(document)
-    with open(cache_file, "w") as f:
+    with open(cache_file, "w", encoding="utf-8") as f:
         json.dump(results, f)
     return results
 
@@ -177,7 +176,6 @@ def opinions_table(documents: list) -> pd.DataFrame:
             "source",
         ],
     )
-
 
 
 def entities_table(documents: list) -> pd.DataFrame:
