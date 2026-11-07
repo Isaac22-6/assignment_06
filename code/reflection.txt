@@ -1,7 +1,4 @@
-Write your reflection here.
-
-See reflection.md for what makes a good reflection — be specific, use the
-terminology from this assignment (REST API, endpoint, HTTP status code,
-raise_for_status, API key, form data vs. JSON body, rate limit, caching,
-json_normalize, record_path, meta, grain, opinion mining, named-entity
-recognition, prompt, system prompt, reasoning model), and make it actionable.
+I learned how to properly request a API and store API keys. The API key needs to be stored within a varible in
+ a .env file, so it cannot be exposed in the github repository. I also only refer to the varible for the API key and 
+ make the sure actual key is never written in my code. I can pratice ensuring my API key is hidden by checking that my 
+ .env file isn't shown in my github respository when commiting changes.
